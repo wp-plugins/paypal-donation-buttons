@@ -1,5 +1,5 @@
 === PayPal Donation Buttons ===
-Contributors: johnny manziel
+Contributors: jigneshkailam
 Tags: button, donate, donation, payment, paypal, paypal donation, shortcode, sidebar, widget
 Requires at least: 3.0.1
 Tested up to: 4.1
