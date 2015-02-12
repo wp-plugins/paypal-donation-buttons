@@ -7,7 +7,6 @@
  * @category	Class
  * @author      johnny manziel <phpwebcreators@gmail.com>
  */
-
 class Paypal_Donation_For_WordPress_Public {
 
     /**
@@ -41,10 +40,8 @@ class Paypal_Donation_For_WordPress_Public {
         $this->version = $version;
         $this->paypal_donation_for_wordpress_add_shortcode();
         add_filter('widget_text', 'do_shortcode');
-        
     }
 
-   
     public function paypal_donation_for_wordpress_add_shortcode() {
         add_shortcode('paypal_donation_button', array($this, 'paypal_donation_for_wordpress_button_generator'));
     }
@@ -62,7 +59,7 @@ class Paypal_Donation_For_WordPress_Public {
         $paypal_donation_for_wordpress_bussiness_email = get_option('paypal_donation_for_wordpress_bussiness_email');
         $paypal_donation_for_wordpress_PayPal_sandbox = get_option('paypal_donation_for_wordpress_PayPal_sandbox');
         $paypal_donation_for_wordpress_button_label = get_option('paypal_donation_for_wordpress_button_label');
-        
+
 
         if (isset($paypal_donation_for_wordpress_button_image) && !empty($paypal_donation_for_wordpress_button_image)) {
             switch ($paypal_donation_for_wordpress_button_image) {
@@ -74,6 +71,24 @@ class Paypal_Donation_For_WordPress_Public {
                     break;
                 case 'button3':
                     $button_url = 'https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif';
+                    break;
+                case 'button4':
+                    $button_url = 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_74x21.png';
+                    break;
+                case 'button5':
+                    $button_url = 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_92x26.png';
+                    break;
+                case 'button6':
+                    $button_url = 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_cc_147x47.png';
+                    break;
+                case 'button7':
+                    $button_url = 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png';
+                    break;
+                case 'button8':
+                    $button_url = 'https://www.paypalobjects.com/en_AU/i/btn/x-click-but11.gif';
+                    break;
+                case 'button9':
+                    $button_url = 'https://www.paypalobjects.com/en_AU/i/btn/x-click-but21.gif';
                     break;
             }
         } elseif (isset($paypal_donation_for_wordpress_custom_button) && !empty($paypal_donation_for_wordpress_custom_button)) {
@@ -89,12 +104,12 @@ class Paypal_Donation_For_WordPress_Public {
         }
 
         ob_start();
-        
+
         $output = '';
 
         $output .= '<form action="' . esc_url($paypal_url) . '" method="post" target="_blank">';
-        
-        if( isset($paypal_donation_for_wordpress_button_label) && !empty($paypal_donation_for_wordpress_button_label) ) {
+
+        if (isset($paypal_donation_for_wordpress_button_label) && !empty($paypal_donation_for_wordpress_button_label)) {
             $output .= '<p><label for=' . esc_attr($paypal_donation_for_wordpress_button_label) . '>' . esc_attr($paypal_donation_for_wordpress_button_label) . '</label></p>';
         }
 
@@ -138,8 +153,6 @@ class Paypal_Donation_For_WordPress_Public {
         return $output;
         return ob_get_clean();
     }
-
-    
 
 }
 

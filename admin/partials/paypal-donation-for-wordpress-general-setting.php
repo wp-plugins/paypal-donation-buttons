@@ -141,7 +141,13 @@ class Paypal_Donation_For_WordPress_General_Setting {
                 'button1' => __('<img style="vertical-align: middle;" alt="small" src="https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif">', 'paypal-donation-for-wordpress'),
                 'button2' => __('<img style="vertical-align: middle;" alt="large" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif">', 'paypal-donation-for-wordpress'),
                 'button3' => __('<img style="vertical-align: middle;" alt="cards" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif">', 'paypal-donation-for-wordpress'),
-                'button4' => __('Custom Button ( If you select this option then pleae enter url in Custom Button textbox, Otherwise donation button will not display. )', 'paypal-donation-for-wordpress')
+                'button4' => __('<img style="vertical-align: middle;" alt="cards" src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_74x21.png">', 'paypal-donation-for-wordpress'),
+                'button5' => __('<img style="vertical-align: middle;" alt="cards" src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_92x26.png">', 'paypal-donation-for-wordpress'),
+                'button6' => __('<img style="vertical-align: middle;" alt="cards" src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_cc_147x47.png">', 'paypal-donation-for-wordpress'),
+                'button7' => __('<img style="vertical-align: middle;" alt="cards" src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png">', 'paypal-donation-for-wordpress'),
+                'button8' => __('<img style="vertical-align: middle;" alt="cards" src="https://www.paypalobjects.com/en_AU/i/btn/x-click-but11.gif">', 'paypal-donation-for-wordpress'),
+                'button9' => __('<img style="vertical-align: middle;" alt="cards" src="https://www.paypalobjects.com/en_AU/i/btn/x-click-but21.gif">', 'paypal-donation-for-wordpress'),
+                'button10' => __('Custom Button ( If you select this option then pleae enter url in Custom Button textbox, Otherwise donation button will not display. )', 'paypal-donation-for-wordpress')
             ),
         );
 
@@ -181,6 +187,28 @@ class Paypal_Donation_For_WordPress_General_Setting {
                     <li>Call the function from a template file: <strong>&lt;?php echo do_shortcode( '[paypal_donation_button]' ); ?&gt;</strong></li>
                     <li>Use the <strong>PayPal Donation</strong> Widget from the Widgets menu</li>
                 </ol>
+                <p><h3>Archive of PayPal Buttons and Images</h3><br>
+                The following reference pages list the localized PayPal buttons and images and their URLs.
+                </p>
+                <p><h4>English</h4></p>
+                <ul>
+                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/AU/">Australia</a></li>
+                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/US-UK/">United Kingdom</a></li>
+                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/US-UK/">United States</a></li>
+                </ul>
+                <p><h4>Asia-Pacific</h4></p>
+                <ul>
+                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/JP/">Japan</a></li>
+                </ul>
+                <p><h4>EU Non-English</h4></p>
+                <ul>
+                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/DE/">Germany</a></li>
+                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/ES/">Spain</a></li>
+                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/FR/">France</a></li>
+                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/IT/">Italy</a></li>
+                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/NL/">Netherlands</a></li>
+                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/PL/">Poland</a></li>
+                </ul>
             </div></div>
         <form id="mailChimp_integration_form" enctype="multipart/form-data" action="" method="post">
             <?php $Html_output->init($paypal_donation_for_wordpress_setting_fields); ?>

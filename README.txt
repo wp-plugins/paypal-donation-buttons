@@ -50,7 +50,8 @@ Easy steps to install the plugin:
 == Frequently Asked Questions ==
 
 == Changelog ==
-
+= 1.0.1 =
+*	Add new donation buttons and urls
 = 1.0.0 =
 *	Release Date - 9 Feb, 1015
 *  	First Version

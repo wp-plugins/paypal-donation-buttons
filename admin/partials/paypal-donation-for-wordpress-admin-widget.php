@@ -22,8 +22,9 @@ class Paypal_Donation_For_WordPress_Admin_Widget extends WP_Widget {
     }
 
     function form($instance) {
+        $paypal_donation_for_wordpress_custom_button = get_option('paypal_donation_for_wordpress_custom_button');
         $paypal_donation_for_wordpress_button_image = get_option('paypal_donation_for_wordpress_button_image');
-         if (isset($paypal_donation_for_wordpress_button_image) && !empty($paypal_donation_for_wordpress_button_image)) {
+        if (isset($paypal_donation_for_wordpress_button_image) && !empty($paypal_donation_for_wordpress_button_image)) {
             switch ($paypal_donation_for_wordpress_button_image) {
                 case 'button1':
                     $button_url = 'https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif';
@@ -34,24 +35,41 @@ class Paypal_Donation_For_WordPress_Admin_Widget extends WP_Widget {
                 case 'button3':
                     $button_url = 'https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif';
                     break;
+                case 'button4':
+                    $button_url = 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_74x21.png';
+                    break;
+                case 'button5':
+                    $button_url = 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_92x26.png';
+                    break;
+                case 'button6':
+                    $button_url = 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_cc_147x47.png';
+                    break;
+                case 'button7':
+                    $button_url = 'https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png';
+                    break;
+                case 'button8':
+                    $button_url = 'https://www.paypalobjects.com/en_AU/i/btn/x-click-but11.gif';
+                    break;
+                case 'button9':
+                    $button_url = 'https://www.paypalobjects.com/en_AU/i/btn/x-click-but21.gif';
+                    break;
             }
         } elseif (isset($paypal_donation_for_wordpress_custom_button) && !empty($paypal_donation_for_wordpress_custom_button)) {
             $button_url = $paypal_donation_for_wordpress_custom_button;
         } else {
             $button_url = 'https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif';
         }
-        
+
         $paypal_donation_for_wordpress_button_label = get_option('paypal_donation_for_wordpress_button_label');
         $output = '';
         if (isset($paypal_donation_for_wordpress_button_label) && !empty($paypal_donation_for_wordpress_button_label)) {
             $output .= '<p><label for=' . esc_attr($paypal_donation_for_wordpress_button_label) . '>' . esc_attr($paypal_donation_for_wordpress_button_label) . '</label></p>';
         }
-        
-        $output .= '<input type="image" name="submit" border="0" src="' . esc_url($button_url) . '" alt="PayPal - The safer, easier way to pay online">';
-        
-        echo $output;
+        if (isset($button_url) && !empty($button_url)) {
+            $output .= '<input type="image" name="submit" border="0" src="' . esc_url($button_url) . '" alt="PayPal - The safer, easier way to pay online">';
+        }
 
-        
+        echo $output;
     }
 
     public function paypal_donation_for_wordpress_button_generator() {
