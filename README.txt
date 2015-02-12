@@ -49,6 +49,12 @@ Easy steps to install the plugin:
 
 == Frequently Asked Questions ==
 
+== Screenshots ==
+
+1. Setting up plugin page. [full screenshot] (http://mbjtechnolabs.com/do_not_delete/screenshot-1.png)
+2. widget setting page. [full screenshot] (http://mbjtechnolabs.com/do_not_delete/screenshot-2.png)
+3. shortcode page. [full screenshot] (http://mbjtechnolabs.com/do_not_delete/screenshot-3.png)
+
 == Changelog ==
 = 1.0.1 =
 *	Add new donation buttons and urls
