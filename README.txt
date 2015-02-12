@@ -51,9 +51,9 @@ Easy steps to install the plugin:
 
 == Screenshots ==
 
-1. Setting up plugin page. [full screenshot] (http://mbjtechnolabs.com/do_not_delete/screenshot-1.png)
-2. widget setting page. [full screenshot] (http://mbjtechnolabs.com/do_not_delete/screenshot-2.png)
-3. shortcode page. [full screenshot] (http://mbjtechnolabs.com/do_not_delete/screenshot-3.png)
+1. Setting up plugin page.
+2. widget setting page.
+3. shortcode page.
 
 == Changelog ==
 = 1.0.1 =
