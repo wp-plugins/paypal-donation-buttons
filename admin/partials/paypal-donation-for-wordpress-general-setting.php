@@ -192,22 +192,22 @@ class Paypal_Donation_For_WordPress_General_Setting {
                 </p>
                 <p><h4>English</h4></p>
                 <ul>
-                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/AU/">Australia</a></li>
-                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/US-UK/">United Kingdom</a></li>
-                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/US-UK/">United States</a></li>
+                    <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/AU/">Australia</a></li>
+                    <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/US-UK/">United Kingdom</a></li>
+                    <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/US-UK/">United States</a></li>
                 </ul>
                 <p><h4>Asia-Pacific</h4></p>
                 <ul>
-                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/JP/">Japan</a></li>
+                    <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/JP/">Japan</a></li>
                 </ul>
                 <p><h4>EU Non-English</h4></p>
                 <ul>
-                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/DE/">Germany</a></li>
-                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/ES/">Spain</a></li>
-                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/FR/">France</a></li>
-                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/IT/">Italy</a></li>
-                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/NL/">Netherlands</a></li>
-                    <li><a href="https://developer.paypal.com/docs/classic/archive/buttons/PL/">Poland</a></li>
+                    <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/DE/">Germany</a></li>
+                    <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/ES/">Spain</a></li>
+                    <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/FR/">France</a></li>
+                    <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/IT/">Italy</a></li>
+                    <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/NL/">Netherlands</a></li>
+                    <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/PL/">Poland</a></li>
                 </ul>
             </div></div>
         <form id="mailChimp_integration_form" enctype="multipart/form-data" action="" method="post">
