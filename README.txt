@@ -21,6 +21,8 @@ This easy to use PayPal Donation For WordPress allows you to place a PayPal dona
 * Provide provide multi currency support
 * Provide credit cart payment system
 
+List of Donation list available
+
 
 == Installation ==
 
@@ -57,7 +59,7 @@ Easy steps to install the plugin:
 4. donation list
 
 == Changelog ==
-= 1.0.2
+= 1.0.2 =
 *	Add donation list
 = 1.0.1 =
 *	Add new donation buttons and urls
