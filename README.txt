@@ -14,6 +14,13 @@ Easy to use add a Paypal Donation Buttons as a Page, Post and Widget with a shor
 This easy to use PayPal Donation For WordPress allows you to place a PayPal donation button within your WordPress theme. Choose between 9 standard PayPal donation buttons or use your own custom button. Also PayPal Donation button used in Page, Post and Widget with a shortcode.
 
 * Provide shortcode
+
+= Shortcode =
+
+Insert the button in your pages or posts with this shortcode
+
+`[paypal_donation_button]`
+
 * Provide widget
 * Provide custome button
 * Provide PayPal IPN url ( paypal notify_url  ), instant payment notification
