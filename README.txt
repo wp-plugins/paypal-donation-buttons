@@ -54,6 +54,7 @@ Easy steps to install the plugin:
 == Screenshots ==
 
 1. Setting up plugin page.
+1. plugin help page.
 2. widget setting page.
 3. shortcode page.
 4. donation list
