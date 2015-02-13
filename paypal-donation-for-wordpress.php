@@ -6,7 +6,7 @@
  * Plugin Name:       PayPal Donation Buttons
  * Plugin URI:        http://www.mbjtechnolabs.com
  * Description:       Easy to use add a PayPal Donation button as a Page, Post and Widget with a shortcode
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            johnny manziel
  * Author URI:        http://www.mbjtechnolabs.com
  * License:           GNU General Public License v3.0
@@ -19,6 +19,16 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
+
+if (!defined('PDW_PLUGIN_URL'))
+    define('PDW_PLUGIN_URL', plugin_dir_url(__FILE__));
+
+ /**
+  * define plugin basename
+  */
+ if (!defined('PDW_PLUGIN_BASENAME')) {
+    define( 'PDW_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+ }
 
 /**
  * The code that runs during plugin activation.

@@ -80,7 +80,7 @@ class Paypal_Donation_For_WordPress_Admin_Widget extends WP_Widget {
         $paypal_donation_for_wordpress_purpose = get_option('paypal_donation_for_wordpress_purpose');
         $paypal_donation_for_wordpress_amount = get_option('paypal_donation_for_wordpress_amount');
         $paypal_donation_for_wordpress_notify_url = get_option('paypal_donation_for_wordpress_notify_url');
-        $paypal_donation_for_wordpress_return_page = get_option('paypal_donation_for_wordpress_return_page');
+        $paypal_donation_for_wordpress_return_page = site_url('?Paypal_Donation_For_WordPress&action=ipn_handler');
         $paypal_donation_for_wordpress_currency = get_option('paypal_donation_for_wordpress_currency');
         $paypal_donation_for_wordpress_bussiness_email = get_option('paypal_donation_for_wordpress_bussiness_email');
         $paypal_donation_for_wordpress_PayPal_sandbox = get_option('paypal_donation_for_wordpress_PayPal_sandbox');

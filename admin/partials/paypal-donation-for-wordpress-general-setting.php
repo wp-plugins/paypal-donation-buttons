@@ -17,6 +17,7 @@ class Paypal_Donation_For_WordPress_General_Setting {
     public static function init() {
 
         add_action('paypal_donation_for_wordpress_general_setting', array(__CLASS__, 'paypal_donation_for_wordpress_general_setting_function'));
+        add_action('paypal_donation_for_wordpress_help_setting', array(__CLASS__, 'paypal_donation_for_wordpress_help_setting'));
         add_action('paypal_donation_for_wordpress_general_setting_save_field', array(__CLASS__, 'paypal_donation_for_wordpress_general_setting_save_field'));
     }
 
@@ -89,16 +90,7 @@ class Paypal_Donation_For_WordPress_General_Setting {
             'css' => 'min-width:300px;',
         );
 
-        $fields[] = array(
-            'title' => __('Instant Payment Notification – notify_url', 'paypal-donation-for-wordpress'),
-            'id' => 'paypal_donation_for_wordpress_notify_url',
-            'desc' => __('Take a look at the  <a target="_blank" href="https://developer.paypal.com/webapps/developer/docs/classic/ipn/integration-guide/IPNSetup/">PayPal IPN Configuration Guide</a> for details on setting up IPN with this URL.', 'paypal-donation-for-wordpress'),
-            'type' => 'text',
-            'default' => '',
-            'class' => 'chosen_select_nostd',
-            'css' => 'min-width:300px;',
-        );
-
+      
         $fields[] = array(
             'title' => __('Amount', 'paypal-donation-for-wordpress'),
             'type' => 'text',
@@ -174,9 +166,7 @@ class Paypal_Donation_For_WordPress_General_Setting {
         $Html_output->save_fields($paypal_donation_for_wordpress_setting_fields);
     }
 
-    public static function paypal_donation_for_wordpress_general_setting_function() {
-        $paypal_donation_for_wordpress_setting_fields = self::paypal_donation_for_wordpress_setting_fields();
-        $Html_output = new Paypal_Donation_For_WordPress_Html_output();
+    public static function paypal_donation_for_wordpress_help_setting() {
         ?>
         <div class="postbox">
             <h3><label for="title">&nbsp;&nbsp;Plugin Usage</label></h3>
@@ -210,6 +200,14 @@ class Paypal_Donation_For_WordPress_General_Setting {
                     <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/PL/">Poland</a></li>
                 </ul>
             </div></div>
+        <?php
+    }
+
+    public static function paypal_donation_for_wordpress_general_setting_function() {
+        $paypal_donation_for_wordpress_setting_fields = self::paypal_donation_for_wordpress_setting_fields();
+        $Html_output = new Paypal_Donation_For_WordPress_Html_output();
+        ?>
+
         <form id="mailChimp_integration_form" enctype="multipart/form-data" action="" method="post">
             <?php $Html_output->init($paypal_donation_for_wordpress_setting_fields); ?>
             <p class="submit">

@@ -54,8 +54,11 @@ Easy steps to install the plugin:
 1. Setting up plugin page.
 2. widget setting page.
 3. shortcode page.
+4. donation list
 
 == Changelog ==
+= 1.0.2
+*	Add donation list
 = 1.0.1 =
 *	Add new donation buttons and urls
 = 1.0.0 =
