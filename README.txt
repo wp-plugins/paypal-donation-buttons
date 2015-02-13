@@ -1,0 +1,70 @@
+=== PayPal Donation Buttons ===
+Contributors: jigneshkailam
+Tags: button, donate, donation, payment, paypal, paypal donation, shortcode, sidebar, widget
+Requires at least: 3.0.1
+Tested up to: 4.1
+Stable tag: trunk
+License: GNU General Public License v3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
+Easy to use add a Paypal Donation Buttons as a Page, Post and Widget with a shortcode.
+== Description ==
+= Introduction =
+
+This easy to use PayPal Donation For WordPress allows you to place a PayPal donation button within your WordPress theme. Choose between 9 standard PayPal donation buttons or use your own custom button. Also PayPal Donation button used in Page, Post and Widget with a shortcode.
+
+* Provide shortcode
+* Provide widget
+* Provide custome button
+* Provide PayPal IPN url ( paypal notify_url  ), instant payment notification
+* Provide return url ( Thank you page)
+* Provide provide multi currency support
+* Provide credit cart payment system
+
+
+== Installation ==
+
+= Automatic installation =
+
+Automatic installation is the easiest option as WordPress handles the file transfers itself and you don't need to leave your web browser. To do an automatic install, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
+
+In the search field type "Paypal Donation Button" and click Search Plugins. Once you've found our plugin you can view details about it such as the the rating and description. Most importantly, of course, you can install it by simply clicking Install Now.
+
+= Manual Installation =
+
+1. Unzip the files and upload the folder into your plugins folder (/wp-content/plugins/) overwriting previous versions if they exist
+2. Activate the plugin in your WordPress admin area.
+
+
+= configuration =
+
+
+
+Easy steps to install the plugin:
+
+*	Upload "Paypal Donation Button" folder/directory to the /wp-content/plugins/ directory
+*	Activate the plugin through the 'Plugins' menu in WordPress.
+*	Go to Settings => Paypal Donation
+
+
+== Frequently Asked Questions ==
+
+== Screenshots ==
+
+1. Setting up plugin page.
+2. widget setting page.
+3. shortcode page.
+4. donation list
+
+== Changelog ==
+= 1.0.2
+*	Add donation list
+= 1.0.1 =
+*	Add new donation buttons and urls
+= 1.0.0 =
+*	Release Date - 9 Feb, 1015
+*  	First Version
+
+
+== Upgrade Notice ==
+Easy to use add a PayPal Donation button as a Page, Post and Widget with a shortcode.
