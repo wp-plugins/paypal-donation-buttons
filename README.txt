@@ -1,6 +1,6 @@
 === PayPal Donation Buttons ===
 Contributors: jigneshkailam
-Tags: button, donate, donation, payment, paypal, paypal donation, shortcode, sidebar, widget
+Tags: button, donate, donation, payment, paypal, paypal donation, shortcode, sidebar, widget, paypal button widget, payment list, Paypal donation list, payment history, donation history, paypal button manager, paypal payment accept, paypal donation accept
 Requires at least: 3.0.1
 Tested up to: 4.1
 Stable tag: trunk
