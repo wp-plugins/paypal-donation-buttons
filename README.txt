@@ -28,7 +28,17 @@ Insert the button in your pages or posts with this shortcode
 * Provide provide multi currency support
 * Provide credit cart payment system
 
-List of Donation list available
+== List of Donation list with below field ==
+*	Transaction ID
+*	Name / Company
+*	Amount
+*	Transaction Type
+*	Payment status
+*	Date
+* 	all field are available in detail view 
+
+
+
 
 
 == Installation ==
