@@ -37,6 +37,8 @@ Insert the button in your pages or posts with this shortcode
 *	Date
 * 	All the field are available in detail view 
 
+= Provide MultiLanguage support
+
 
 
 
@@ -94,6 +96,8 @@ Easy steps to install the plugin:
 4. donation list
 
 == Changelog ==
+= 1.0.3 =
+* 	Add New Language files
 = 1.0.2 =
 *	Add donation list
 = 1.0.1 =
