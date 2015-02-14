@@ -57,6 +57,23 @@ Easy steps to install the plugin:
 
 
 == Frequently Asked Questions ==
+Where can I get support?
+Please visit the [Support Forum] (http://wordpress.org/support/plugin/paypal-donation-buttons) for questions, answers, support and feature requests.
+
+Does this plugin provide Donation list?
+Yes, this plugin provide donation list, without do any thing :)
+
+Does this plugin provide multi currency support?
+Yes, this plugin provide multi currency support.
+
+does this plugin provide widget support?
+Yes.
+
+does this plugin provide custom button option?
+Yes, this plugin provide custome button option, as well no. of button list.
+
+does this plugin provide monthly recurring option?
+Yes. 
 
 == Screenshots ==
 
