@@ -39,6 +39,8 @@ Insert the button in your pages or posts with this shortcode
 
 = Provide MultiLanguage support =
 
+= Provide Email send functionality to donor as well store admin
+
 
 == Installation ==
 
