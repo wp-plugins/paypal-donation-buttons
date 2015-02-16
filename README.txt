@@ -91,10 +91,11 @@ Easy steps to install the plugin:
 == Screenshots ==
 
 1. Setting up plugin page.
-1. plugin help page.
-2. widget setting page.
-3. shortcode page.
-4. donation list
+2. plugin help page.
+3. widget setting page.
+4. shortcode page.
+5. donation list.
+6. Email sending page.
 
 == Changelog ==
 = 1.0.4 =
