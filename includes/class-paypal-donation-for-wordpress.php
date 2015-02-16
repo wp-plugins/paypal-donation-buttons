@@ -55,29 +55,29 @@ class Paypal_Donation_For_WordPress {
         $this->set_locale();
         $this->define_admin_hooks();
         $this->define_public_hooks();
-        
+
+        //add_filter('wp_mail_content_type', array($this, 'set_html_content_type'));
         add_action('init', array($this, 'add_endpoint'), 0);
         add_action('parse_request', array($this, 'handle_api_requests'), 0);
+        add_action('paypal_donation_for_wordpress_send_notification_mail', array($this, 'paypal_donation_for_wordpress_send_notification_mail'), 10, 1);
 
         add_action('paypal_donation_for_wordpress_api_ipn_handler', array($this, 'paypal_donation_for_wordpress_api_ipn_handler'));
         $prefix = is_network_admin() ? 'network_admin_' : '';
-        add_filter("{$prefix}plugin_action_links_" . PDW_PLUGIN_BASENAME ,array($this,'plugin_action_links'),10,4);
-        
+        add_filter("{$prefix}plugin_action_links_" . PDW_PLUGIN_BASENAME, array($this, 'plugin_action_links'), 10, 4);
+
         add_filter('widget_text', 'do_shortcode');
     }
 
-    
-    public function plugin_action_links($actions, $plugin_file, $plugin_data, $context)
-    {
+    public function plugin_action_links($actions, $plugin_file, $plugin_data, $context) {
         $custom_actions = array(
-            'configure' => sprintf( '<a href="%s">%s</a>', admin_url( 'options-general.php?page=paypal-donation-for-wordpress' ), __( 'Configure', 'paypal-donation-buttons' ) ),
-            'support'   => sprintf( '<a href="%s" target="_blank">%s</a>', 'http://wordpress.org/support/plugin/paypal-donation-buttons/', __( 'Support', 'paypal-donation-buttons' ) ),
-            'review'    => sprintf( '<a href="%s" target="_blank">%s</a>', 'http://wordpress.org/support/view/plugin-reviews/paypal-donation-buttons', __( 'Write a Review', 'paypal-donation-buttons' ) ),
+            'configure' => sprintf('<a href="%s">%s</a>', admin_url('options-general.php?page=paypal-donation-for-wordpress'), __('Configure', 'paypal-donation-buttons')),
+            'support' => sprintf('<a href="%s" target="_blank">%s</a>', 'http://wordpress.org/support/plugin/paypal-donation-buttons/', __('Support', 'paypal-donation-buttons')),
+            'review' => sprintf('<a href="%s" target="_blank">%s</a>', 'http://wordpress.org/support/view/plugin-reviews/paypal-donation-buttons', __('Write a Review', 'paypal-donation-buttons')),
         );
 
-       return array_merge( $custom_actions, $actions );
+        return array_merge($custom_actions, $actions);
     }
-    
+
     /**
      * Load the required dependencies for this plugin.
      *
@@ -118,9 +118,9 @@ class Paypal_Donation_For_WordPress {
          * side of the site.
          */
         require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-paypal-donation-for-wordpress-public.php';
-        
+
         require_once plugin_dir_path(dirname(__FILE__)) . 'admin/partials/class-paypal-donation-for-wordpress-list.php';
-        
+
 
         $this->loader = new Paypal_Donation_For_WordPress_Loader();
     }
@@ -207,8 +207,8 @@ class Paypal_Donation_For_WordPress {
     public function get_version() {
         return $this->version;
     }
-    
-     public function handle_api_requests() {
+
+    public function handle_api_requests() {
         global $wp;
 
         if (isset($_GET['action']) && $_GET['action'] == 'ipn_handler') {
@@ -264,5 +264,81 @@ class Paypal_Donation_For_WordPress {
         }
     }
 
+    public function set_html_content_type() {
+        return 'text/html';
+    }
+
+    public function paypal_donation_for_wordpress_send_notification_mail($posted) {
+
+        $template = get_option('paypal_donation_buttons_email_body_text');
+
+        $template_value = isset($template) ? $template : get_option('paypal_donation_buttons_email_body_text_pre');
+        
+        $parse_templated = $this->paypal_donation_for_wordpress_template_vars_replacement($template_value, $posted);
+
+
+
+        $from_name = get_option('paypal_donation_buttons_email_from_name');
+        $from_name_value = isset($from_name) ? $from_name : 'From';
+
+        $sender_address = get_option('paypal_donation_buttons_email_from_address');
+        $sender_address_value = isset($sender_address) ? $sender_address : get_option('admin_email');
+
+
+        if (isset($from_name_value) && !empty($from_name_value)) {
+            $headers = "From: " . $from_name_value . " <" . $sender_address_value . ">";
+        }
+
+
+        if (isset($posted['payer_email']) && !empty($posted['payer_email'])) {
+            $subject = get_option('paypal_donation_buttons_email_subject');
+            $subject_value = isset($subject) ? $subject : 'Thank you for your donation';
+            
+            $enable_admin = get_option('paypal_donation_buttons_admin_notification');
+            $admin_email = get_option('admin_email');
+            if (isset($headers) && !empty($headers)) {
+                wp_mail($posted['payer_email'], $subject_value, $parse_templated, $headers);
+                if($enable_admin) {
+                    wp_mail($admin_email, $subject_value, $parse_templated, $headers);
+                }
+                
+            } else {
+                wp_mail($posted['payer_email'], $subject_value, $parse_templated);
+                if($enable_admin) {
+                    wp_mail($admin_email, $subject_value, $parse_templated);
+                }
+            }
+            //remove_filter('wp_mail_content_type', 'set_html_content_type');
+        }
+    }
+
+    public function paypal_donation_for_wordpress_template_vars_replacement($template, $posted) {
+
+
+
+        $to_replace = array(
+            'blog_url' => get_option('siteurl'),
+            'home_url' => get_option('home'),
+            'blog_name' => get_option('blogname'),
+            'blog_description' => get_option('blogdescription'),
+            'admin_email' => get_option('admin_email'),
+            'date' => date_i18n(get_option('date_format')),
+            'time' => date_i18n(get_option('time_format')),
+            'txn_id' => $posted['txn_id'],
+            'receiver_email' => $posted['receiver_email'],
+            'payment_date' => $posted['payment_date'],
+            'first_name' => $posted['first_name'],
+            'last_name' => $posted['last_name'],
+            'mc_currency' => $posted['mc_currency'],
+            'mc_gross' => $posted['mc_gross']
+        );
+
+        foreach ($to_replace as $tag => $var) {
+            
+            $template = str_replace('%' . $tag . '%', $var, $template);
+        }
+        
+        return $template;
+    }
 
 }

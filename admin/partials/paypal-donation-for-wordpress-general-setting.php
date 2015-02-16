@@ -17,8 +17,131 @@ class Paypal_Donation_For_WordPress_General_Setting {
     public static function init() {
 
         add_action('paypal_donation_for_wordpress_general_setting', array(__CLASS__, 'paypal_donation_for_wordpress_general_setting_function'));
+        add_action('paypal_donation_for_wordpress_email_setting', array(__CLASS__, 'paypal_donation_for_wordpress_email_setting_function'));
         add_action('paypal_donation_for_wordpress_help_setting', array(__CLASS__, 'paypal_donation_for_wordpress_help_setting'));
         add_action('paypal_donation_for_wordpress_general_setting_save_field', array(__CLASS__, 'paypal_donation_for_wordpress_general_setting_save_field'));
+        add_action('paypal_donation_for_wordpress_email_setting_save_field', array(__CLASS__, 'paypal_donation_for_wordpress_email_setting_save_field'));
+    }
+
+    public static function paypal_donation_for_wordpress_email_setting_field() {
+         $email_body = "Hello %first_name% %last_name%,
+
+Thank you for your donation!
+
+Your PayPal transaction ID is: %txn_id%
+PayPal donation receiver email address: %receiver_email%
+PayPal donation date: %payment_date%
+PayPal donor first: %first_name%
+PayPal donor last name: %last_name%
+PayPal donation currency: %mc_currency%
+PayPal donation amount: %mc_gross%
+
+Thanks you very much,
+Store Admin";
+         
+         
+        update_option('paypal_donation_buttons_email_body_text_pre', $email_body);
+        $settings = apply_filters('paypal_donation_buttons_email_settings', array(
+            array('type' => 'sectionend', 'id' => 'email_recipient_options'),
+            array('title' => __('Email settings', 'paypal-donation-buttons'), 'type' => 'title', 'desc' => __('Set your own sender name and email address. Default WordPress values will be used if empty.', 'paypal-donation-buttons'), 'id' => 'email_options'),
+            array(
+                'title' => __('Enable/Disable', 'paypal-donation-buttons'),
+                'type' => 'checkbox',
+                'desc' => __('Enable this email notification for donor', 'paypal-donation-buttons'),
+                'default' => 'yes',
+                'id' => 'paypal_donation_buttons_donor_notification'
+            ),
+            array(
+                'title' => __('Enable/Disable', 'paypal-donation-buttons'),
+                'type' => 'checkbox',
+                'desc' => __('Enable this email notification for website admin', 'paypal-donation-buttons'),
+                'default' => 'yes',
+                'id' => 'paypal_donation_buttons_admin_notification'
+            ),
+            array(
+                'title' => __('"From" Name', 'paypal-donation-buttons'),
+                'desc' => '',
+                'id' => 'paypal_donation_buttons_email_from_name',
+                'type' => 'text',
+                'css' => 'min-width:300px;',
+                'default' => esc_attr(get_bloginfo('title')),
+                'autoload' => false
+            ),
+            array(
+                'title' => __('"From" Email Address', 'paypal-donation-buttons'),
+                'desc' => '',
+                'id' => 'paypal_donation_buttons_email_from_address',
+                'type' => 'email',
+                'custom_attributes' => array(
+                    'multiple' => 'multiple'
+                ),
+                'css' => 'min-width:300px;',
+                'default' => get_option('admin_email'),
+                'autoload' => false
+            ),
+            array(
+                'title' => __('Email subject', 'paypal-donation-buttons'),
+                'desc' => '',
+                'id' => 'paypal_donation_buttons_email_subject',
+                'type' => 'text',
+                'css' => 'min-width:300px;',
+                'default' => 'Thank you for your donation',
+                'autoload' => false
+            ),
+            array('type' => 'sectionend', 'id' => 'email_options'),
+           
+            array(
+                'title' => __('Email body', 'paypal-donation-buttons'),
+                'desc' => __('The text to appear in the Donation Email. Please read more Help section(tab) for more dynamic tag', 'paypal-donation-buttons'),
+                'id' => 'paypal_donation_buttons_email_body_text',
+                'css' => 'width:100%; height: 500px;',
+                'type' => 'textarea',
+                'editor' => 'false',
+                'default' => $email_body,
+                'autoload' => false
+            ),
+            array('type' => 'sectionend', 'id' => 'email_template_options'),
+                ));
+
+        return $settings;
+    }
+
+    public static function help() {
+
+
+        echo '<p>' . __('Some dynamic tags can be included in your email template :', 'wp-better-emails') . '</p>
+					<ul>
+						<li>' . __('<strong>%blog_url%</strong> : will be replaced with your blog URL.', 'wp-better-emails') . '</li>
+						<li>' . __('<strong>%home_url%</strong> : will be replaced with your home URL.', 'wp-better-emails') . '</li>
+						<li>' . __('<strong>%blog_name%</strong> : will be replaced with your blog name.', 'wp-better-emails') . '</li>
+						<li>' . __('<strong>%blog_description%</strong> : will be replaced with your blog description.', 'wp-better-emails') . '</li>
+						<li>' . __('<strong>%admin_email%</strong> : will be replaced with admin email.', 'wp-better-emails') . '</li>
+						<li>' . __('<strong>%date%</strong> : will be replaced with current date, as formatted in <a href="options-general.php">general options</a>.', 'wp-better-emails') . '</li>
+						<li>' . __('<strong>%time%</strong> : will be replaced with current time, as formatted in <a href="options-general.php">general options</a>.', 'wp-better-emails') . '</li>
+                                                <li>' . __('<strong>%txn_id%</strong> : will be replaced with PayPal donation transaction ID.', 'wp-better-emails') . '</li>
+                                                <li>' . __('<strong>%receiver_email%</strong> : will be replaced with PayPal donation receiver email address%.', 'wp-better-emails') . '</li>
+                                                <li>' . __('<strong>%payment_date%</strong> : will be replaced with PayPal donation date%.', 'wp-better-emails') . '</li>
+                                                <li>' . __('<strong>%first_name%</strong> : will be replaced with PayPal donation first name%.', 'wp-better-emails') . '</li>
+                                                <li>' . __('<strong>%last_name%</strong> : will be replaced with PayPal donation last name%.', 'wp-better-emails') . '</li>
+                                                <li>' . __('<strong>%mc_currency%</strong> : will be replaced with PayPal donation currency like USD', 'wp-better-emails') . '</li>
+                                                <li>' . __('<strong>%mc_gross%</strong> : will be replaced with PayPal donation amount', 'wp-better-emails') . '</li>
+                                          </ul>';
+    }
+
+    public static function paypal_donation_for_wordpress_email_setting_function() {
+        
+       
+        $paypal_donation_for_wordpress_setting_fields = self::paypal_donation_for_wordpress_email_setting_field();
+        $Html_output = new Paypal_Donation_For_WordPress_Html_output();
+        ?>
+
+        <form id="mailChimp_integration_form" enctype="multipart/form-data" action="" method="post">
+        <?php $Html_output->init($paypal_donation_for_wordpress_setting_fields); ?>
+            <p class="submit">
+                <input type="submit" name="mailChimp_integration" class="button-primary" value="<?php esc_attr_e('Save changes', 'Option'); ?>" />
+            </p>
+        </form>
+        <?php
     }
 
     public static function paypal_donation_for_wordpress_setting_fields() {
@@ -90,7 +213,7 @@ class Paypal_Donation_For_WordPress_General_Setting {
             'css' => 'min-width:300px;',
         );
 
-      
+
         $fields[] = array(
             'title' => __('Amount', 'paypal-donation-for-wordpress'),
             'type' => 'text',
@@ -166,10 +289,16 @@ class Paypal_Donation_For_WordPress_General_Setting {
         $Html_output->save_fields($paypal_donation_for_wordpress_setting_fields);
     }
 
+    public static function paypal_donation_for_wordpress_email_setting_save_field() {
+        $paypal_donation_for_wordpress_email_setting_field = self::paypal_donation_for_wordpress_email_setting_field();
+        $Html_output = new Paypal_Donation_For_WordPress_Html_output();
+        $Html_output->save_fields($paypal_donation_for_wordpress_email_setting_field);
+    }
+
     public static function paypal_donation_for_wordpress_help_setting() {
         ?>
         <div class="postbox">
-            <h3><label for="title">&nbsp;&nbsp;Plugin Usage</label></h3>
+            <h2><label for="title">&nbsp;&nbsp;Plugin Usage</label></h2>
             <div class="inside">      
                 <p>There are a few ways you can use this plugin:</p>
                 <ol>
@@ -199,6 +328,9 @@ class Paypal_Donation_For_WordPress_General_Setting {
                     <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/NL/">Netherlands</a></li>
                     <li><a target="_blank" href="https://developer.paypal.com/docs/classic/archive/buttons/PL/">Poland</a></li>
                 </ul>
+                <br>
+                <h2> <label>Email dynamic tag list</label></h2>
+        <?php self::help(); ?>
             </div></div>
         <?php
     }
@@ -209,7 +341,7 @@ class Paypal_Donation_For_WordPress_General_Setting {
         ?>
 
         <form id="mailChimp_integration_form" enctype="multipart/form-data" action="" method="post">
-            <?php $Html_output->init($paypal_donation_for_wordpress_setting_fields); ?>
+        <?php $Html_output->init($paypal_donation_for_wordpress_setting_fields); ?>
             <p class="submit">
                 <input type="submit" name="mailChimp_integration" class="button-primary" value="<?php esc_attr_e('Save changes', 'Option'); ?>" />
             </p>

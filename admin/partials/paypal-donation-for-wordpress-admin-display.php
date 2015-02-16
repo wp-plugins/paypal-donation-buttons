@@ -16,6 +16,7 @@ class Paypal_Donation_For_WordPress_Admin_Display {
      */
     public static function init() {
         add_action('admin_menu', array(__CLASS__, 'add_settings_menu'));
+        
     }
 
     /**
@@ -24,16 +25,17 @@ class Paypal_Donation_For_WordPress_Admin_Display {
      * @access   public
      */
     public static function add_settings_menu() {
+        
         add_options_page('Paypal Donation For WordPress Options', 'Paypal Donation', 'manage_options', 'paypal-donation-for-wordpress', array(__CLASS__, 'paypal_donation_for_wordpress_options'));
     }
 
-    /**
+     /**
      * paypal_ipn_for_wordpress_options helper will trigger hook and handle all the settings section 
      * @since    1.0.0
      * @access   public
      */
     public static function paypal_donation_for_wordpress_options() {
-        $setting_tabs = apply_filters('paypal_donation_for_wordpress_options_setting_tab', array('general' => 'General', 'help' => 'Help'));
+        $setting_tabs = apply_filters('paypal_donation_for_wordpress_options_setting_tab', array('general' => 'General', 'email' => 'Emails', 'help' => 'Help'));
         $current_tab = (isset($_GET['tab'])) ? $_GET['tab'] : 'general';
         ?>
         <h2 class="nav-tab-wrapper">

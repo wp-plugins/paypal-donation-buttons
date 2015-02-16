@@ -153,7 +153,10 @@ class Paypal_Donation_For_WordPress_Html_output {
                             </th>
                             <td class="forminp forminp-<?php echo sanitize_title($value['type']) ?>">
                                 <?php echo $description; ?>
-
+                                <?php if(isset($value['editor']) && $value['editor'] == 'true') {
+                                    
+                                    echo wp_editor( $option_value, $value['id'] );
+                                } else { ?>
                                 <textarea
                                     name="<?php echo esc_attr($value['id']); ?>"
                                     id="<?php echo esc_attr($value['id']); ?>"
@@ -161,6 +164,7 @@ class Paypal_Donation_For_WordPress_Html_output {
                                     class="<?php echo esc_attr($value['class']); ?>"
                                     <?php echo implode(' ', $custom_attributes); ?>
                                     ><?php echo esc_textarea($option_value); ?></textarea>
+                                <?php } ?>
                             </td>
                         </tr><?php
                         break;
@@ -371,6 +375,9 @@ class Paypal_Donation_For_WordPress_Html_output {
                     $option_value = array_map('stripslashes', $option_value);
                 } elseif (!is_null($option_value)) {
                     $option_value = stripslashes($option_value);
+                    if(empty($option_value) && !empty($default)) {
+                        $option_value = null;
+                    }
                 }
 
                 return $option_value === null ? $default : $option_value;

@@ -87,12 +87,11 @@ class Paypal_Donation_For_WordPress_PayPal_listner {
      * return boolean
      */
     public function successful_request($IPN_status) {
+        
         $ipn_response = !empty($_POST) ? $_POST : false;
         $ipn_response['IPN_status'] = ( $IPN_status == true ) ? 'Verified' : 'Invalid';
-
         $posted = stripslashes_deep($ipn_response);
-
-        
+        do_action('paypal_donation_for_wordpress_send_notification_mail', $posted);
         $this->ipn_response_data_handler($posted);
     }
 
