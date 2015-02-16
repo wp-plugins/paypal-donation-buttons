@@ -93,6 +93,8 @@ Easy steps to install the plugin:
 4. donation list
 
 == Changelog ==
+= 1.0.4 =
+*	Add email send functionality to donor as well admin 
 = 1.0.3 =
 * 	Add New Language files
 = 1.0.2 =
