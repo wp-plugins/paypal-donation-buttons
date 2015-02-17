@@ -114,7 +114,9 @@ class Paypal_Donation_For_WordPress_Public {
         }
 
         $output .= '<input type="hidden" name="business" value="' . esc_attr($paypal_donation_for_wordpress_bussiness_email) . '">';
-
+		
+		$output .= '<input type="hidden" name="bn" value="mbjtechnolabs_SP">';
+				
         $output .= '<input type="hidden" name="cmd" value="_donations">';
 
         if (isset($paypal_donation_for_wordpress_purpose) && !empty($paypal_donation_for_wordpress_purpose)) {

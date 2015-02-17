@@ -45,7 +45,7 @@ Insert the button in your pages or posts with this shortcode
 
 
 = Going to launch soon =
-= Version 1.0.5 include below feature =
+= Version 1.0.6 include below feature =
 *	display donation revenue in different type of charts with shortcode functionality
 *	Create unlimited donation button using different shortcode
 *	Donation confirmation email visual editor
