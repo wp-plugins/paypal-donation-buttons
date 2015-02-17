@@ -44,6 +44,14 @@ Insert the button in your pages or posts with this shortcode
 * Donor ( PayPal payer email)
 
 
+= Going to launch soon =
+= Version 1.0.5 include below feature =
+*	display donation revenue in different type of charts with shortcode functionality
+*	Create unlimited donation button using different shortcode
+*	Donation confirmation email visual editor
+
+
+
 == Installation ==
 
 = Automatic installation =
