@@ -24,7 +24,7 @@ class Paypal_Donation_For_WordPress_General_Setting {
     }
 
     public static function paypal_donation_for_wordpress_email_setting_field() {
-         $email_body = "Hello %first_name% %last_name%,
+        $email_body = "Hello %first_name% %last_name%,
 
 Thank you for your donation!
 
@@ -38,8 +38,8 @@ PayPal donation amount: %mc_gross%
 
 Thanks you very much,
 Store Admin";
-         
-         
+
+
         update_option('paypal_donation_buttons_email_body_text_pre', $email_body);
         $settings = apply_filters('paypal_donation_buttons_email_settings', array(
             array('type' => 'sectionend', 'id' => 'email_recipient_options'),
@@ -89,7 +89,6 @@ Store Admin";
                 'autoload' => false
             ),
             array('type' => 'sectionend', 'id' => 'email_options'),
-           
             array(
                 'title' => __('Email body', 'paypal-donation-buttons'),
                 'desc' => __('The text to appear in the Donation Email. Please read more Help section(tab) for more dynamic tag', 'paypal-donation-buttons'),
@@ -101,7 +100,7 @@ Store Admin";
                 'autoload' => false
             ),
             array('type' => 'sectionend', 'id' => 'email_template_options'),
-                ));
+        ));
 
         return $settings;
     }
@@ -129,14 +128,14 @@ Store Admin";
     }
 
     public static function paypal_donation_for_wordpress_email_setting_function() {
-        
-       
+
+
         $paypal_donation_for_wordpress_setting_fields = self::paypal_donation_for_wordpress_email_setting_field();
         $Html_output = new Paypal_Donation_For_WordPress_Html_output();
         ?>
 
         <form id="mailChimp_integration_form" enctype="multipart/form-data" action="" method="post">
-        <?php $Html_output->init($paypal_donation_for_wordpress_setting_fields); ?>
+            <?php $Html_output->init($paypal_donation_for_wordpress_setting_fields); ?>
             <p class="submit">
                 <input type="submit" name="mailChimp_integration" class="button-primary" value="<?php esc_attr_e('Save changes', 'Option'); ?>" />
             </p>
@@ -330,7 +329,7 @@ Store Admin";
                 </ul>
                 <br>
                 <h2> <label>Email dynamic tag list</label></h2>
-        <?php self::help(); ?>
+                <?php self::help(); ?>
             </div></div>
         <?php
     }
@@ -341,7 +340,7 @@ Store Admin";
         ?>
 
         <form id="mailChimp_integration_form" enctype="multipart/form-data" action="" method="post">
-        <?php $Html_output->init($paypal_donation_for_wordpress_setting_fields); ?>
+            <?php $Html_output->init($paypal_donation_for_wordpress_setting_fields); ?>
             <p class="submit">
                 <input type="submit" name="mailChimp_integration" class="button-primary" value="<?php esc_attr_e('Save changes', 'Option'); ?>" />
             </p>

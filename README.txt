@@ -107,6 +107,8 @@ Easy steps to install the plugin:
 6. Email sending page.
 
 == Changelog ==
+= 1.0.6 =
+*       Remove trailing space
 = 1.0.4 =
 *	Add email send functionality to donor as well admin 
 = 1.0.3 =

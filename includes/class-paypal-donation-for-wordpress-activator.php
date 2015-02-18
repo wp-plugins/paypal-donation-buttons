@@ -7,14 +7,13 @@
  * @category	Class
  * @author      johnny manziel <phpwebcreators@gmail.com>
  */
-
 class Paypal_Donation_For_WordPress_Activator {
 
-	/**
-	 * @since    1.0.0
-	 */
-	public static function activate() {
-
-	}
+    /**
+     * @since    1.0.0
+     */
+    public static function activate() {
+        
+    }
 
 }

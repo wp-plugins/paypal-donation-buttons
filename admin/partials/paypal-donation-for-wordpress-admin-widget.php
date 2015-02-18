@@ -121,8 +121,8 @@ class Paypal_Donation_For_WordPress_Admin_Widget extends WP_Widget {
         }
 
         $output .= '<input type="hidden" name="business" value="' . esc_attr($paypal_donation_for_wordpress_bussiness_email) . '">';
-		
-		$output .= '<input type="hidden" name="bn" value="mbjtechnolabs_SP">';
+
+        $output .= '<input type="hidden" name="bn" value="mbjtechnolabs_SP">';
 
         $output .= '<input type="hidden" name="cmd" value="_donations">';
 

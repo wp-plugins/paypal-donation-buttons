@@ -49,7 +49,7 @@ class Paypal_Donation_For_WordPress {
     public function __construct() {
 
         $this->plugin_name = 'paypal-donation-for-wordpress';
-        $this->version = '1.0.2';
+        $this->version = '1.0.6';
 
         $this->load_dependencies();
         $this->set_locale();
@@ -273,7 +273,7 @@ class Paypal_Donation_For_WordPress {
         $template = get_option('paypal_donation_buttons_email_body_text');
 
         $template_value = isset($template) ? $template : get_option('paypal_donation_buttons_email_body_text_pre');
-        
+
         $parse_templated = $this->paypal_donation_for_wordpress_template_vars_replacement($template_value, $posted);
 
 
@@ -293,18 +293,17 @@ class Paypal_Donation_For_WordPress {
         if (isset($posted['payer_email']) && !empty($posted['payer_email'])) {
             $subject = get_option('paypal_donation_buttons_email_subject');
             $subject_value = isset($subject) ? $subject : 'Thank you for your donation';
-            
+
             $enable_admin = get_option('paypal_donation_buttons_admin_notification');
             $admin_email = get_option('admin_email');
             if (isset($headers) && !empty($headers)) {
                 wp_mail($posted['payer_email'], $subject_value, $parse_templated, $headers);
-                if($enable_admin) {
+                if ($enable_admin) {
                     wp_mail($admin_email, $subject_value, $parse_templated, $headers);
                 }
-                
             } else {
                 wp_mail($posted['payer_email'], $subject_value, $parse_templated);
-                if($enable_admin) {
+                if ($enable_admin) {
                     wp_mail($admin_email, $subject_value, $parse_templated);
                 }
             }
@@ -334,10 +333,10 @@ class Paypal_Donation_For_WordPress {
         );
 
         foreach ($to_replace as $tag => $var) {
-            
+
             $template = str_replace('%' . $tag . '%', $var, $template);
         }
-        
+
         return $template;
     }
 

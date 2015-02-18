@@ -7,7 +7,6 @@
  * @category	Class
  * @author      johnny manziel <phpwebcreators@gmail.com>
  */
-
 class Paypal_Donation_For_WordPress_List {
 
     /**
@@ -24,10 +23,8 @@ class Paypal_Donation_For_WordPress_List {
         add_filter('manage_edit-donation_list_sortable_columns', array(__CLASS__, 'paypal_donation_for_wordpress_donation_list_sortable_columns'));
         add_action('pre_get_posts', array(__CLASS__, 'paypal_donation_for_wordpress_ipn_column_orderby'));
         add_action('add_meta_boxes', array(__CLASS__, 'paypal_donation_for_wordpress_add_meta_boxes_ipn_data_custome_fields'), 31);
-        
     }
 
-   
     /**
      * paypal_donation_for_wordpress_register_post_types function
      * @since    1.0.0
@@ -79,7 +76,7 @@ class Paypal_Donation_For_WordPress_List {
                 )
         );
     }
-   
+
     /**
      * paypal_donation_for_wordpress_remove_meta_boxes function used for remove submitdiv meta_box for donation_list custome post type
      * https://core.trac.wordpress.org/ticket/12706
@@ -189,7 +186,6 @@ class Paypal_Donation_For_WordPress_List {
             $query->query_vars['meta_key'] = $_GET['orderby'];
         }
     }
-
 
     /**
      * paypal_donation_for_wordpress_add_meta_boxes_ipn_data_custome_fields function used for register own meta_box for display IPN custome filed read only

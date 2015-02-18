@@ -75,8 +75,8 @@ class Paypal_Donation_For_WordPress_Html_output {
                 } elseif ($description) {
                     $description = '<span class="description">' . wp_kses_post($description) . '</span>';
                 }
-                
-                if (isset($value['placeholder']) && !empty($value['placeholder']) ) {
+
+                if (isset($value['placeholder']) && !empty($value['placeholder'])) {
                     $placeholder = $value['placeholder'];
                 } else {
                     $placeholder = '';
@@ -146,25 +146,27 @@ class Paypal_Donation_For_WordPress_Html_output {
                     case 'textarea':
 
                         $option_value = self::get_option($value['id'], $value['default']);
-                                    ?><tr valign="top">
+                        ?><tr valign="top">
                             <th scope="row" class="titledesc">
                                 <label for="<?php echo esc_attr($value['id']); ?>"><?php echo esc_html($value['title']); ?></label>
                                 <?php echo $tip; ?>
                             </th>
                             <td class="forminp forminp-<?php echo sanitize_title($value['type']) ?>">
                                 <?php echo $description; ?>
-                                <?php if(isset($value['editor']) && $value['editor'] == 'true') {
-                                    
-                                    echo wp_editor( $option_value, $value['id'] );
-                                } else { ?>
-                                <textarea
-                                    name="<?php echo esc_attr($value['id']); ?>"
-                                    id="<?php echo esc_attr($value['id']); ?>"
-                                    style="<?php echo esc_attr($value['css']); ?>"
-                                    class="<?php echo esc_attr($value['class']); ?>"
-                                    <?php echo implode(' ', $custom_attributes); ?>
-                                    ><?php echo esc_textarea($option_value); ?></textarea>
-                                <?php } ?>
+                                <?php
+                                if (isset($value['editor']) && $value['editor'] == 'true') {
+
+                                    echo wp_editor($option_value, $value['id']);
+                                } else {
+                                    ?>
+                                    <textarea
+                                        name="<?php echo esc_attr($value['id']); ?>"
+                                        id="<?php echo esc_attr($value['id']); ?>"
+                                        style="<?php echo esc_attr($value['css']); ?>"
+                                        class="<?php echo esc_attr($value['class']); ?>"
+                                        <?php echo implode(' ', $custom_attributes); ?>
+                                        ><?php echo esc_textarea($option_value); ?></textarea>
+                                    <?php } ?>
                             </td>
                         </tr><?php
                         break;
@@ -174,7 +176,7 @@ class Paypal_Donation_For_WordPress_Html_output {
                     case 'multiselect' :
 
                         $option_value = self::get_option($value['id'], $value['default']);
-                                    ?><tr valign="top">
+                        ?><tr valign="top">
                             <th scope="row" class="titledesc">
                                 <label for="<?php echo esc_attr($value['id']); ?>"><?php echo esc_html($value['title']); ?></label>
                                 <?php echo $tip; ?>
@@ -192,12 +194,12 @@ class Paypal_Donation_For_WordPress_Html_output {
                                         foreach ($value['options'] as $key => $val) {
                                             ?>
                                         <option value="<?php echo esc_attr($key); ?>" <?php
-                            if (is_array($option_value)) {
-                                selected(in_array($key, $option_value), true);
-                            } else {
-                                selected($option_value, $key);
-                            }
-                                            ?>><?php echo $val ?></option>
+                                        if (is_array($option_value)) {
+                                            selected(in_array($key, $option_value), true);
+                                        } else {
+                                            selected($option_value, $key);
+                                        }
+                                        ?>><?php echo $val ?></option>
                                                 <?php
                                             }
                                             ?>
@@ -210,7 +212,7 @@ class Paypal_Donation_For_WordPress_Html_output {
                     case 'radio' :
 
                         $option_value = self::get_option($value['id'], $value['default']);
-                                            ?><tr valign="top">
+                        ?><tr valign="top">
                             <th scope="row" class="titledesc">
                                 <label for="<?php echo esc_attr($value['id']); ?>"><?php echo esc_html($value['title']); ?></label>
                                 <?php echo $tip; ?>
@@ -265,7 +267,7 @@ class Paypal_Donation_For_WordPress_Html_output {
                         }
 
                         if (!isset($value['checkboxgroup']) || 'start' == $value['checkboxgroup']) {
-                                            ?>
+                            ?>
                             <tr valign="top" class="<?php echo esc_attr(implode(' ', $visbility_class)); ?>">
                                 <th scope="row" class="titledesc"><?php echo esc_html($value['title']) ?></th>
                                 <td class="forminp forminp-checkbox">
@@ -330,154 +332,154 @@ class Paypal_Donation_For_WordPress_Html_output {
                                 <?php echo str_replace(' id=', " data-placeholder='" . __('Select a page&hellip;', 'Option') . "' style='" . $value['css'] . "' class='" . $value['class'] . "' id=", wp_dropdown_pages($args)); ?> <?php echo $description; ?>
                             </td>
                         </tr><?php
-                                break;
+                        break;
 
-                            // Default: run an action
-                            default:
-                                break;
-                        }
-                    }
+                    // Default: run an action
+                    default:
+                        break;
                 }
             }
+        }
+    }
 
-            /**
-             * Get a setting from the settings API.
-             * @since    1.0.0
-             * @param mixed $option_name
-             * @return string
-             */
-            public static function get_option($option_name, $default = '') {
-                // Array value
-                if (strstr($option_name, '[')) {
+    /**
+     * Get a setting from the settings API.
+     * @since    1.0.0
+     * @param mixed $option_name
+     * @return string
+     */
+    public static function get_option($option_name, $default = '') {
+        // Array value
+        if (strstr($option_name, '[')) {
 
-                    parse_str($option_name, $option_array);
+            parse_str($option_name, $option_array);
 
-                    // Option name is first key
-                    $option_name = current(array_keys($option_array));
+            // Option name is first key
+            $option_name = current(array_keys($option_array));
 
-                    // Get value
-                    $option_values = get_option($option_name, '');
+            // Get value
+            $option_values = get_option($option_name, '');
 
-                    $key = key($option_array[$option_name]);
+            $key = key($option_array[$option_name]);
 
-                    if (isset($option_values[$key])) {
-                        $option_value = $option_values[$key];
-                    } else {
-                        $option_value = null;
+            if (isset($option_values[$key])) {
+                $option_value = $option_values[$key];
+            } else {
+                $option_value = null;
+            }
+
+            // Single value
+        } else {
+            $option_value = get_option($option_name, null);
+        }
+
+        if (is_array($option_value)) {
+            $option_value = array_map('stripslashes', $option_value);
+        } elseif (!is_null($option_value)) {
+            $option_value = stripslashes($option_value);
+            if (empty($option_value) && !empty($default)) {
+                $option_value = null;
+            }
+        }
+
+        return $option_value === null ? $default : $option_value;
+    }
+
+    /**
+     * Save admin fields.
+     *
+     * Loops though the admin options array and outputs each field.
+     *
+     * @param array $options Opens array to output
+     * @return bool
+     */
+    public static function save_fields($options) {
+        if (empty($_POST)) {
+            return false;
+        }
+
+        // Options to update will be stored here
+        $update_options = array();
+
+        // Loop options and get values to save
+        foreach ($options as $value) {
+            if (!isset($value['id']) || !isset($value['type'])) {
+                continue;
+            }
+
+            // Get posted value
+            if (strstr($value['id'], '[')) {
+                parse_str($value['id'], $option_name_array);
+
+                $option_name = current(array_keys($option_name_array));
+                $setting_name = key($option_name_array[$option_name]);
+
+                $option_value = isset($_POST[$option_name][$setting_name]) ? stripslashes_deep($_POST[$option_name][$setting_name]) : null;
+            } else {
+                $option_name = $value['id'];
+                $setting_name = '';
+                $option_value = isset($_POST[$value['id']]) ? stripslashes_deep($_POST[$value['id']]) : null;
+            }
+
+            // Format value
+            switch (sanitize_title($value['type'])) {
+                case 'checkbox' :
+                    $option_value = is_null($option_value) ? 'no' : 'yes';
+                    break;
+                case 'textarea' :
+                    $option_value = wp_kses_post(trim($option_value));
+                    break;
+                case 'text' :
+                case 'email':
+                case 'number':
+                case 'select' :
+                case 'color' :
+                case 'password' :
+                case 'radio' :
+
+                    $option_value = $option_value;
+
+                    break;
+
+                default :
+                    break;
+            }
+
+            if (!is_null($option_value)) {
+                // Check if option is an array
+                if ($option_name && $setting_name) {
+                    // Get old option value
+                    if (!isset($update_options[$option_name])) {
+                        $update_options[$option_name] = get_option($option_name, array());
                     }
+
+                    if (!is_array($update_options[$option_name])) {
+                        $update_options[$option_name] = array();
+                    }
+
+                    $update_options[$option_name][$setting_name] = $option_value;
 
                     // Single value
                 } else {
-                    $option_value = get_option($option_name, null);
+                    $update_options[$option_name] = $option_value;
                 }
-
-                if (is_array($option_value)) {
-                    $option_value = array_map('stripslashes', $option_value);
-                } elseif (!is_null($option_value)) {
-                    $option_value = stripslashes($option_value);
-                    if(empty($option_value) && !empty($default)) {
-                        $option_value = null;
-                    }
-                }
-
-                return $option_value === null ? $default : $option_value;
             }
-
-            /**
-             * Save admin fields.
-             *
-             * Loops though the admin options array and outputs each field.
-             *
-             * @param array $options Opens array to output
-             * @return bool
-             */
-            public static function save_fields($options) {
-                if (empty($_POST)) {
-                    return false;
-                }
-
-                // Options to update will be stored here
-                $update_options = array();
-
-                // Loop options and get values to save
-                foreach ($options as $value) {
-                    if (!isset($value['id']) || !isset($value['type'])) {
-                        continue;
-                    }
-
-                    // Get posted value
-                    if (strstr($value['id'], '[')) {
-                        parse_str($value['id'], $option_name_array);
-
-                        $option_name = current(array_keys($option_name_array));
-                        $setting_name = key($option_name_array[$option_name]);
-
-                        $option_value = isset($_POST[$option_name][$setting_name]) ? stripslashes_deep($_POST[$option_name][$setting_name]) : null;
-                    } else {
-                        $option_name = $value['id'];
-                        $setting_name = '';
-                        $option_value = isset($_POST[$value['id']]) ? stripslashes_deep($_POST[$value['id']]) : null;
-                    }
-
-                    // Format value
-                    switch (sanitize_title($value['type'])) {
-                        case 'checkbox' :
-                            $option_value = is_null($option_value) ? 'no' : 'yes';
-                            break;
-                        case 'textarea' :
-                            $option_value = wp_kses_post(trim($option_value));
-                            break;
-                        case 'text' :
-                        case 'email':
-                        case 'number':
-                        case 'select' :
-                        case 'color' :
-                        case 'password' :
-                        case 'radio' :
-
-                            $option_value = $option_value;
-
-                            break;
-
-                        default :
-                            break;
-                    }
-
-                    if (!is_null($option_value)) {
-                        // Check if option is an array
-                        if ($option_name && $setting_name) {
-                            // Get old option value
-                            if (!isset($update_options[$option_name])) {
-                                $update_options[$option_name] = get_option($option_name, array());
-                            }
-
-                            if (!is_array($update_options[$option_name])) {
-                                $update_options[$option_name] = array();
-                            }
-
-                            $update_options[$option_name][$setting_name] = $option_value;
-
-                            // Single value
-                        } else {
-                            $update_options[$option_name] = $option_value;
-                        }
-                    }
-                }
-
-                // Now save the options
-                foreach ($update_options as $name => $value) {
-                    update_option($name, $value);
-                }
-
-                return true;
-            }
-
         }
 
-        Paypal_Donation_For_WordPress_Html_output::init();
+        // Now save the options
+        foreach ($update_options as $name => $value) {
+            update_option($name, $value);
+        }
+
+        return true;
+    }
+
+}
+
+Paypal_Donation_For_WordPress_Html_output::init();
 
 
 
 
 
-        
+

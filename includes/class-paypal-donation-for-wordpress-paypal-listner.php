@@ -87,7 +87,7 @@ class Paypal_Donation_For_WordPress_PayPal_listner {
      * return boolean
      */
     public function successful_request($IPN_status) {
-        
+
         $ipn_response = !empty($_POST) ? $_POST : false;
         $ipn_response['IPN_status'] = ( $IPN_status == true ) ? 'Verified' : 'Invalid';
         $posted = stripslashes_deep($ipn_response);
@@ -95,7 +95,6 @@ class Paypal_Donation_For_WordPress_PayPal_listner {
         $this->ipn_response_data_handler($posted);
     }
 
-   
     /**
      * ipn_response_data_handler helper function use for further process 
      * @since    1.0.0
@@ -111,11 +110,11 @@ class Paypal_Donation_For_WordPress_PayPal_listner {
 
             if (isset($posted['txn_id'])) {
                 $paypal_txn_id = $posted['txn_id'];
-            } 
-            
+            }
+
             if ($this->paypal_donation_for_wordpress_exist_post_by_title($paypal_txn_id) == false) {
 
-               
+
                 $insert_ipn_array = array(
                     'ID' => '',
                     'post_type' => 'donation_list', // Custom Post Type Slug
@@ -167,5 +166,4 @@ class Paypal_Donation_For_WordPress_PayPal_listner {
         }
     }
 
-   
 }
