@@ -107,6 +107,8 @@ Easy steps to install the plugin:
 6. Email sending page.
 
 == Changelog ==
+= 1.0.7 = 
+*	Compatible with sidebar 
 = 1.0.6 =
 *       Remove trailing space
 = 1.0.4 =

@@ -105,7 +105,8 @@ class Paypal_Donation_For_WordPress_Public {
 
         ob_start();
 
-        $output = '';
+		$output = '';
+        $output = '<div class="page-sidebar widget">';
 
         $output .= '<form action="' . esc_url($paypal_url) . '" method="post" target="_blank">';
 
@@ -150,7 +151,7 @@ class Paypal_Donation_For_WordPress_Public {
         }
 
         $output .= '<input type="image" name="submit" border="0" src="' . esc_url($button_url) . '" alt="PayPal - The safer, easier way to pay online">';
-        $output .= '</form>';
+        $output .= '</form></div>';
 
         return $output;
         return ob_get_clean();
