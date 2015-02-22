@@ -49,7 +49,7 @@ class Paypal_Donation_For_WordPress {
     public function __construct() {
 
         $this->plugin_name = 'paypal-donation-for-wordpress';
-        $this->version = '1.0.7';
+        $this->version = '1.0.8';
 
         $this->load_dependencies();
         $this->set_locale();
@@ -165,7 +165,7 @@ class Paypal_Donation_For_WordPress {
 
         $plugin_public = new Paypal_Donation_For_WordPress_Public($this->get_plugin_name(), $this->get_version());
 
-        $this->loader->add_filter('widget_text', $plugin_public, 'do_shortcode');
+        //$this->loader->add_filter('widget_text', $plugin_public, 'do_shortcode');
     }
 
     /**
