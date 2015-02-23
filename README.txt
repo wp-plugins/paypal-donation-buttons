@@ -107,6 +107,8 @@ Easy steps to install the plugin:
 6. Email sending page.
 
 == Changelog ==
+= 1.0.9 =
+*	Resolved custom button url problem
 = 1.0.8 =
 *	Compatible with text widget
 = 1.0.7 = 
