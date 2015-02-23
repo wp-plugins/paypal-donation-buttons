@@ -53,6 +53,9 @@ class Paypal_Donation_For_WordPress_Admin_Widget extends WP_Widget {
                 case 'button9':
                     $button_url = 'https://www.paypalobjects.com/en_AU/i/btn/x-click-but21.gif';
                     break;
+				 case 'button10':
+                    $button_url = get_option('paypal_donation_for_wordpress_custom_button');
+                    break;
             }
         } elseif (isset($paypal_donation_for_wordpress_custom_button) && !empty($paypal_donation_for_wordpress_custom_button)) {
             $button_url = $paypal_donation_for_wordpress_custom_button;
