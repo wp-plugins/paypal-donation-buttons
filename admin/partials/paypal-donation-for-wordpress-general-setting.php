@@ -580,7 +580,7 @@ Store Admin";
 
             $mailchimp_api_key = get_option('mailchimp_api_key');
             $apikey = (isset($mailchimp_api_key)) ? $mailchimp_api_key : '';
-            $api = new Paypal_Donation_For_WordPress_Html_output_MailChimp_MCAPI($apikey);
+            $api = new Paypal_Donation_For_WordPress_MailChimp_MCAPI($apikey);
 
             $retval = $api->lists();
             if ($api->errorCode) {

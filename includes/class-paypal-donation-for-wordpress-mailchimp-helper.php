@@ -42,7 +42,7 @@ class Paypal_Donation_For_WordPress_MailChimp_Helper {
 
         if (isset($apikey) && !empty($apikey)) {
              include_once 'class-paypal-donation-for-wordpress-mcapi.php';
-            $api = new Paypal_Donation_For_WordPress_Html_output_MailChimp_MCAPI($apikey);
+            $api = new Paypal_Donation_For_WordPress_MailChimp_MCAPI($apikey);
 
             $retval = $api->listSubscribe($listId, $payer_email, $merge_vars, $email_type = 'html');
         }
