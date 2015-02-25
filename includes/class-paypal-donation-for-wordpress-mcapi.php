@@ -7,7 +7,7 @@
  * @category	Class
  * @author      johnny manziel <phpwebcreators@gmail.com>
  */
-class Paypal_Donation_For_WordPress_Html_output_MailChimp_MCAPI {
+class Paypal_Donation_For_WordPress_MailChimp_MCAPI {
 
     var $version = "1.3";
     var $errorMessage;
@@ -44,7 +44,7 @@ class Paypal_Donation_For_WordPress_Html_output_MailChimp_MCAPI {
      * @param string $apikey Your MailChimp apikey
      * @param string $secure Whether or not this should use a secure connection
      */
-    function Paypal_Donation_For_WordPress_Html_output_MailChimp_MCAPI($apikey, $secure = false) {
+    function Paypal_Donation_For_WordPress_MailChimp_MCAPI($apikey, $secure = false) {
         $this->secure = $secure;
         $this->apiUrl = parse_url("http://api.mailchimp.com/" . $this->version . "/?output=php");
         $this->api_key = $apikey;
