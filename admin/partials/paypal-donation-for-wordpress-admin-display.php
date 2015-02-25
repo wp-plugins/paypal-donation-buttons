@@ -34,7 +34,7 @@ class Paypal_Donation_For_WordPress_Admin_Display {
      * @access   public
      */
     public static function paypal_donation_for_wordpress_options() {
-        $setting_tabs = apply_filters('paypal_donation_for_wordpress_options_setting_tab', array('general' => 'General', 'email' => 'Emails', 'help' => 'Help'));
+        $setting_tabs = apply_filters('paypal_donation_for_wordpress_options_setting_tab', array('general' => 'General', 'email' => 'Send Email', 'mailchimp' => 'MailChimp', 'help' => 'Help'));
         $current_tab = (isset($_GET['tab'])) ? $_GET['tab'] : 'general';
         ?>
         <h2 class="nav-tab-wrapper">

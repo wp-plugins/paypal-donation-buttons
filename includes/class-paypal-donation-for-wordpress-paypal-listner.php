@@ -124,6 +124,14 @@ class Paypal_Donation_For_WordPress_PayPal_listner {
 
                 $post_id = wp_insert_post($insert_ipn_array);
 
+                /**
+                 *  development hook paypal_ipn_for_wordpress_mailchimp_handler 
+                 */
+                if ('yes' == get_option('enable_mailchimp')) {
+                    do_action('paypal_donation_for_wordpress_mailchimp_handler', $posted);
+                }
+
+
                 $this->ipn_response_postmeta_handler($post_id, $posted);
             } else {
 

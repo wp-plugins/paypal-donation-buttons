@@ -43,13 +43,14 @@ Insert the button in your pages or posts with this shortcode
 * Admin ( store admin )
 * Donor ( PayPal payer email)
 
+= MailChimp API =
+*	Automatically add email addresses to your MailChimp user list(s) when donation are processed on your PayPal account.
 
 = Going to launch soon =
 = Version 1.1.1 include below feature =
 *	display donation revenue in different type of charts with shortcode functionality
 *	Create unlimited donation button using different shortcode
 *	Donation confirmation email visual editor
-*	Donor auto subscribe to mailchimp list
 * 	your suggestion I will include in this versions
 
 
@@ -106,8 +107,11 @@ Easy steps to install the plugin:
 4. shortcode page.
 5. donation list.
 6. Email sending page.
+7. Provided MailChimp functionality.
 
 == Changelog ==
+= 1.1.0 =
+*	Automatically add email addresses to your MailChimp user list when donation are processed on your PayPal account.
 = 1.0.9 =
 *	Resolved custom button url problem
 = 1.0.8 =
