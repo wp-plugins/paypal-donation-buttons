@@ -110,6 +110,8 @@ Easy steps to install the plugin:
 7. Provided MailChimp functionality.
 
 == Changelog ==
+= 1.1.0.1 
+=	Error Resolved
 = 1.1.0 =
 *	Automatically add email addresses to your MailChimp user list when donation are processed on your PayPal account.
 = 1.0.9 =
