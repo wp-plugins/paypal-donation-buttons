@@ -120,7 +120,7 @@ class Paypal_Donation_For_WordPress {
         require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-paypal-donation-for-wordpress-public.php';
 
         require_once plugin_dir_path(dirname(__FILE__)) . 'admin/partials/class-paypal-donation-for-wordpress-list.php';
-        require_once plugin_dir_path(dirname(__FILE__)) . 'admin/partials/class-paypal-donation-for-wordpress-mailchimp-helper.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-paypal-donation-for-wordpress-mailchimp-helper.php';
         
 
         $this->loader = new Paypal_Donation_For_WordPress_Loader();
