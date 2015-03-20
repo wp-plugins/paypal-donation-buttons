@@ -110,6 +110,8 @@ Easy steps to install the plugin:
 7. Provided MailChimp functionality.
 
 == Changelog ==
+= 1.1.0.2 =
+*       Add code comments
 = 1.1.0.1 =
 *	Error Resolved.
 = 1.1.0 =
