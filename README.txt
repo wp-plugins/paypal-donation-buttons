@@ -1,5 +1,5 @@
-=== PayPal Donation Buttons ===
-Contributors: jigneshkailam
+=== PayPal Donation Buttons + MailChimp ===
+Contributors: phpwebcreators
 Tags: donation, donation wp, paypal, paypal donation, button, donate, donation, payment, paypal, paypal donation, PayPal Donate, shortcode, paypal donation buttons,paypal donation button, multi currency, donation history, paypal donation widget, shortcode, sidebar, payment list, Paypal donation list, payment history, donation history, paypal button manager, paypal payment accept, paypal donation accept, mailchimp, subscribe, email, mailchimp, marketing, newsletter, plugin, signup, widget
 Requires at least: 3.0.1
 Tested up to: 4.1

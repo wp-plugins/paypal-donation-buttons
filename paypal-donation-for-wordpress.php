@@ -3,7 +3,7 @@
 /**
  *
  * @wordpress-plugin
- * Plugin Name:       PayPal Donation Buttons
+ * Plugin Name:       PayPal Donation Buttons + MailChimp
  * Plugin URI:        http://www.mbjtechnolabs.com
  * Description:       Easy to use add a PayPal Donation button as a Page, Post and Widget with a shortcode
  * Version:           1.1.0.2
