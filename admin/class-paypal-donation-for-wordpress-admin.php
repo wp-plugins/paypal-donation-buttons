@@ -54,4 +54,9 @@ class Paypal_Donation_For_WordPress_Admin {
         require_once plugin_dir_path(dirname(__FILE__)) . 'admin/partials/paypal-donation-for-wordpress-admin-widget.php';
     }
 
+    public function paypal_donation_button_woocommerce_standard_parameters($paypal_args) {
+        $paypal_args['bn'] = 'mbjtechnolabs_SP';
+        return $paypal_args;
+    }
+
 }

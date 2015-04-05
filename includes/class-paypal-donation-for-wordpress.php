@@ -49,7 +49,7 @@ class Paypal_Donation_For_WordPress {
     public function __construct() {
 
         $this->plugin_name = 'paypal-donation-for-wordpress';
-        $this->version = '1.1.0';
+        $this->version = '1.1.0.3';
 
         $this->load_dependencies();
         $this->set_locale();
@@ -153,6 +153,7 @@ class Paypal_Donation_For_WordPress {
     private function define_admin_hooks() {
 
         $plugin_admin = new Paypal_Donation_For_WordPress_Admin($this->get_plugin_name(), $this->get_version());
+        $this->loader->add_filter('woocommerce_paypal_args', $plugin_admin, 'paypal_donation_button_woocommerce_standard_parameters', 99, 1);
     }
 
     /**
