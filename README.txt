@@ -3,7 +3,7 @@ Contributors: johnwickjigo
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KVSGTF4593JYU
 Tags: donation, donation wp, paypal, paypal donation, button, donate, donation, payment, paypal, paypal donation, PayPal Donate, shortcode, paypal donation buttons,paypal donation button, multi currency, donation history, paypal donation widget, shortcode, sidebar, payment list, Paypal donation list, payment history, donation history, paypal button manager, paypal payment accept, paypal donation accept, mailchimp, subscribe, email, mailchimp, marketing, newsletter, plugin, signup, widget
 Requires at least: 3.0.1
-Tested up to: 4.1.1
+Tested up to: 4.2
 Stable tag: trunk
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
