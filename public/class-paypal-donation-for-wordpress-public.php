@@ -125,15 +125,11 @@ class Paypal_Donation_For_WordPress_Public {
 
         if (isset($paypal_donation_for_wordpress_purpose) && !empty($paypal_donation_for_wordpress_purpose)) {
             $output .= '<input type="hidden" name="item_name" value="' . esc_attr($paypal_donation_for_wordpress_purpose) . '">';
-        } else {
-            $output .= '<input type="hidden" name="item_name" value="cup of coffee">';
-        }
+        } 
 
         if (isset($paypal_donation_for_wordpress_reference) && !empty($paypal_donation_for_wordpress_reference)) {
             $output .= '<input type="hidden" name="item_number" value="' . esc_attr($paypal_donation_for_wordpress_reference) . '">';
-        } else {
-            $output .= '<input type="hidden" name="item_number" value="cup of coffee">';
-        }
+        } 
 
 
         if (isset($paypal_donation_for_wordpress_amount) && !empty($paypal_donation_for_wordpress_amount)) {

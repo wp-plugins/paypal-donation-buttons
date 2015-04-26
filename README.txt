@@ -1,5 +1,6 @@
 === PayPal Donation Buttons + MailChimp ===
 Contributors: johnwickjigo
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KVSGTF4593JYU
 Tags: donation, donation wp, paypal, paypal donation, button, donate, donation, payment, paypal, paypal donation, PayPal Donate, shortcode, paypal donation buttons,paypal donation button, multi currency, donation history, paypal donation widget, shortcode, sidebar, payment list, Paypal donation list, payment history, donation history, paypal button manager, paypal payment accept, paypal donation accept, mailchimp, subscribe, email, mailchimp, marketing, newsletter, plugin, signup, widget
 Requires at least: 3.0.1
 Tested up to: 4.1.1
@@ -110,6 +111,9 @@ Easy steps to install the plugin:
 7. Provided MailChimp functionality.
 
 == Changelog ==
+= 1.2.0 =
+*       26/4/2015 ( 1.2.0 )
+*       Remove default text for item_name and item_number ticket( https://wordpress.org/support/topic/purpose-field-pre-populated?replies=2 )
 = 1.1.0.2 =
 *       Add code comments
 = 1.1.0.1 =
