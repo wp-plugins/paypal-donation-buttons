@@ -49,7 +49,7 @@ class Paypal_Donation_For_WordPress {
     public function __construct() {
 
         $this->plugin_name = 'paypal-donation-for-wordpress';
-        $this->version = '1.2.0';
+        $this->version = '1.2.1';
 
         $this->load_dependencies();
         $this->set_locale();
