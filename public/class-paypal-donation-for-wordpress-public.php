@@ -42,6 +42,27 @@ class Paypal_Donation_For_WordPress_Public {
         add_filter('widget_text', 'do_shortcode');
     }
 
+    /**
+     * Register the stylesheets for the public-facing side of the site.
+     *
+     * @since    1.0.0
+     */
+    public function enqueue_styles() {
+
+        /**
+         * This function is provided for demonstration purposes only.
+         *
+         * An instance of this class should be passed to the run() function
+         * defined in Paypal_Buttons_Loader as all of the hooks are defined
+         * in that particular class.
+         *
+         * The Paypal_Buttons_Loader will then create the relationship
+         * between the defined hooks and the functions defined in this
+         * class.
+         */
+        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/paypal-donation-buttons-public.css', array(), $this->version, 'all');
+    }
+
     public function paypal_donation_for_wordpress_add_shortcode() {
         add_shortcode('paypal_donation_button', array($this, 'paypal_donation_for_wordpress_button_generator'));
     }
@@ -90,7 +111,7 @@ class Paypal_Donation_For_WordPress_Public {
                 case 'button9':
                     $button_url = 'https://www.paypalobjects.com/en_AU/i/btn/x-click-but21.gif';
                     break;
-				 case 'button10':
+                case 'button10':
                     $button_url = get_option('paypal_donation_for_wordpress_custom_button');
                     break;
             }
@@ -108,7 +129,7 @@ class Paypal_Donation_For_WordPress_Public {
 
         ob_start();
 
-		$output = '';
+        $output = '';
         $output = '<div class="page-sidebar widget">';
 
         $output .= '<form action="' . esc_url($paypal_url) . '" method="post" target="_blank">';
@@ -125,11 +146,11 @@ class Paypal_Donation_For_WordPress_Public {
 
         if (isset($paypal_donation_for_wordpress_purpose) && !empty($paypal_donation_for_wordpress_purpose)) {
             $output .= '<input type="hidden" name="item_name" value="' . esc_attr($paypal_donation_for_wordpress_purpose) . '">';
-        } 
+        }
 
         if (isset($paypal_donation_for_wordpress_reference) && !empty($paypal_donation_for_wordpress_reference)) {
             $output .= '<input type="hidden" name="item_number" value="' . esc_attr($paypal_donation_for_wordpress_reference) . '">';
-        } 
+        }
 
 
         if (isset($paypal_donation_for_wordpress_amount) && !empty($paypal_donation_for_wordpress_amount)) {

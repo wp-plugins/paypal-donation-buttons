@@ -49,7 +49,7 @@ class Paypal_Donation_For_WordPress {
     public function __construct() {
 
         $this->plugin_name = 'paypal-donation-for-wordpress';
-        $this->version = '1.2.1';
+        $this->version = '1.2.2';
 
         $this->load_dependencies();
         $this->set_locale();
@@ -121,7 +121,7 @@ class Paypal_Donation_For_WordPress {
 
         require_once plugin_dir_path(dirname(__FILE__)) . 'admin/partials/class-paypal-donation-for-wordpress-list.php';
         require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-paypal-donation-for-wordpress-mailchimp-helper.php';
-        
+
 
         $this->loader = new Paypal_Donation_For_WordPress_Loader();
     }
@@ -166,7 +166,7 @@ class Paypal_Donation_For_WordPress {
     private function define_public_hooks() {
 
         $plugin_public = new Paypal_Donation_For_WordPress_Public($this->get_plugin_name(), $this->get_version());
-
+        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
         //$this->loader->add_filter('widget_text', $plugin_public, 'do_shortcode');
     }
 
