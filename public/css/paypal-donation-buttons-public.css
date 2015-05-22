@@ -1,3 +1,11 @@
 .page-sidebar.widget {
   z-index: 99999;
 }
+#paypal_donation_buttons input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: unset;
+    float: none;
+    margin: unset;
+    padding: unset;
+}

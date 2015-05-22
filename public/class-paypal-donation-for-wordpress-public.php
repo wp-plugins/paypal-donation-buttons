@@ -130,7 +130,7 @@ class Paypal_Donation_For_WordPress_Public {
         ob_start();
 
         $output = '';
-        $output = '<div class="page-sidebar widget">';
+        $output = '<div class="page-sidebar widget" id="paypal_donation_buttons">';
 
         $output .= '<form action="' . esc_url($paypal_url) . '" method="post" target="_blank">';
 
