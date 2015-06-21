@@ -20,6 +20,7 @@ This easy to use PayPal Donation For WordPress allows you to place a PayPal dona
 
 Insert the button in your pages or posts with this shortcode
 
+
 `[paypal_donation_button]`
 
 * Provide widget
