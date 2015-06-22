@@ -112,6 +112,10 @@ Easy steps to install the plugin:
 7. Provided MailChimp functionality.
 
 == Changelog ==
+= 1.2.3 =
+*       22/6/2015
+*       Add donation list for admin only
+*       display only donation transaction
 = 1.2.1 =
 *       16/5/2015 ( 1.2.2 )
 *       Compatible with WordPress 4.2.2 version

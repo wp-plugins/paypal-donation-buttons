@@ -16,7 +16,9 @@ class Paypal_Donation_For_WordPress_List {
      */
     public static function init() {
         add_action('admin_print_scripts', array(__CLASS__, 'disable_autosave'));
-        add_action('init', array(__CLASS__, 'paypal_donation_for_wordpress_register_post_types'), 5);
+        if (  is_admin() ) {
+            add_action('init', array(__CLASS__, 'paypal_donation_for_wordpress_register_post_types'), 5);
+        }
         add_action('add_meta_boxes', array(__CLASS__, 'paypal_donation_for_wordpress_remove_meta_boxes'), 10);
         add_action('manage_edit-donation_list_columns', array(__CLASS__, 'paypal_donation_for_wordpress_add_donation_list_columns'), 10, 2);
         add_action('manage_donation_list_posts_custom_column', array(__CLASS__, 'paypal_donation_for_wordpress_render_donation_list_columns'), 2);

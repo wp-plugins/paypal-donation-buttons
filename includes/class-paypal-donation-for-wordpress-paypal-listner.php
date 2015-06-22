@@ -110,6 +110,8 @@ class Paypal_Donation_For_WordPress_PayPal_listner {
 
             if (isset($posted['txn_id'])) {
                 $paypal_txn_id = $posted['txn_id'];
+            } else {
+                return false;
             }
 
             if ($this->paypal_donation_for_wordpress_exist_post_by_title($paypal_txn_id) == false) {
