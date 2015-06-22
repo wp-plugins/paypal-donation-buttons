@@ -20,8 +20,25 @@ This easy to use PayPal Donation For WordPress allows you to place a PayPal dona
 
 Insert the button in your pages or posts with this shortcode
 
+Shortcode For WordPress Editor: 
+
+* Note: all the shortcode parameter are optional
 
 `[paypal_donation_button]`
+
+`[paypal_donation_button item_name="YOUR ITEM NAME" item_number="YOUR ITEM NUMBER OR ANY NUMBER"]`
+
+`[paypal_donation_button item_name="YOUR ITEM NAME" item_number="YOUR ITEM NUMBER OR ANY NUMBER" currency_code="USD"]`
+
+
+Shortcode For WordPress Template file: 
+
+`<?php echo do_shortcode( '[paypal_donation_button]' ); ?>`
+
+
+
+<input type="hidden" name="item_name" value="Friends of the Park">
+    <input type="hidden" name="item_number" value="Fall Cleanup Campaign">
 
 * Provide widget
 * Provide custome button
